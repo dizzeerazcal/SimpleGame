@@ -7,6 +7,11 @@ public class Player extends GameObject{
 		super(name);
 		
 	}
+	
+	@Override
+	public String toString(){
+		return this.getClass().getName() + "[name=" + name + "]";
+	}
 
 	@Override
 	public boolean useOn(GameObject object) {
