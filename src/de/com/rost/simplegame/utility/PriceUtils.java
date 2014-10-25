@@ -1,4 +1,4 @@
-package de.com.rost.simplegame;
+package de.com.rost.simplegame.utility;
 
 import de.com.rost.simplegame.interfaces.Buyable;
 

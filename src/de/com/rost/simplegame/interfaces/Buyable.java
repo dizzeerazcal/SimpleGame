@@ -1,6 +1,6 @@
 package de.com.rost.simplegame.interfaces;
 
-import de.com.rost.simplegame.PriceUtils;
+import de.com.rost.simplegame.utility.PriceUtils;
 
 public interface Buyable {
 	double MAX_PRICE = 50000.00;

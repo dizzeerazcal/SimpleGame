@@ -64,8 +64,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="de.com.rost.simplegame.PriceUtils" project="Simple Game" 
-    file="/Simple Game/src/de/com/rost/simplegame/PriceUtils.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="8" language="java" name="de.com.rost.simplegame.utility.PriceUtils" project="Simple Game" 
+    file="/Simple Game/src/de/com/rost/simplegame/utility/PriceUtils.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="618" y="460"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -92,43 +92,43 @@
     </display>  
   </class>  
   <generalization id="11">    
-    <end type="SOURCE" refId="10"/>    
+    <end type="SOURCE" refId="9"/>    
     <end type="TARGET" refId="4"/>  
   </generalization>  
-  <generalization id="12">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
-  <realization id="13">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="1"/>  
-  </realization>  
-  <association id="14">    
+  <association id="12">    
     <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="15" name="players"/>      
-      <multiplicity id="16" minimum="0" maximum="2147483647"/>    
+      <attribute id="13" name="players"/>      
+      <multiplicity id="14" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="17">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
-  <realization id="18">    
+  <realization id="15">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="1"/>  
+  </realization>  
+  <realization id="16">    
     <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="1"/>  
   </realization>  
+  <generalization id="17">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <generalization id="18">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
   <generalization id="19">    
     <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="4"/>  
   </generalization>  
   <generalization id="20">    
-    <end type="SOURCE" refId="2"/>    
+    <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="4"/>  
   </generalization>  
   <generalization id="21">    
-    <end type="SOURCE" refId="9"/>    
+    <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="4"/>  
   </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
