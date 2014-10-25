@@ -1,12 +1,19 @@
 package de.com.rost.simplegame;
 
+import java.awt.*;
+
 public class Game {
 
 	public static void main(String[] args) {
 
-		Magazine mag1 = new Magazine("Mag 1", 0.98);
-		Magazine mag2 = new Magazine("Mag 2", 10);
-		System.out.println(mag1.compareTo(mag2));
+		Player marc = new Player("Marc");
+		Player peter = new Player("Peter");
+		Magazine lifestyle = new Magazine("Lifestyle", 4.50);
+		Magazine ct = new Magazine("c't", 7.90);
+		Room dungeon = new Room("Dungeon");
+		dungeon.placePlayer(marc, peter);
+		dungeon.listPlayers();
+		
 	}
 
 }

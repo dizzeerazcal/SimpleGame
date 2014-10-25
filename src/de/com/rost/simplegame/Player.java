@@ -1,7 +1,11 @@
 package de.com.rost.simplegame;
 
+import java.awt.Point;
 
-public class Player extends GameObject{
+import de.com.rost.simplegame.interfaces.Placeable;
+
+
+public class Player extends GameObject implements Placeable{
 	
 	public Player(String name){
 		super(name);
@@ -16,5 +20,16 @@ public class Player extends GameObject{
 	@Override
 	public boolean useOn(GameObject object) {
 		return false;
+	}
+
+	@Override
+	public Point getPosition() {
+		return position;
+	}
+
+	@Override
+	public void setPosition(Point position) {
+		this.position.setLocation(position);
+		
 	}
 }
