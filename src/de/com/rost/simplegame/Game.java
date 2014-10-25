@@ -1,7 +1,5 @@
 package de.com.rost.simplegame;
 
-import java.awt.*;
-
 public class Game {
 
 	public static void main(String[] args) {
