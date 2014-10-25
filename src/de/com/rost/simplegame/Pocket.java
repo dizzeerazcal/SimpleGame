@@ -1,15 +1,19 @@
 package de.com.rost.simplegame;
 
-public class Pocket {
+public class Pocket<T>{
 	
-	private Object value;
+	private T value;
 	public Pocket(){}
 	
-	public Pocket ( Object value){
+	public Pocket ( T value ){
 		this.value = value;
 	}
 	
-	public Object get(){
+	public void set(T value){
+		this.value = value;
+	}
+	
+	public T get(){
 		return value;
 	}
 

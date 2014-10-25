@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="de.com.rost.simplegame.Game" project="Simple Game" 
     file="/Simple Game/src/de/com/rost/simplegame/Game.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="616" y="596"/>    
+    <position height="-1" width="-1" x="442" y="628"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -66,7 +66,7 @@
   </class>  
   <class id="8" language="java" name="de.com.rost.simplegame.utility.PriceUtils" project="Simple Game" 
     file="/Simple Game/src/de/com/rost/simplegame/utility/PriceUtils.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="618" y="460"/>    
+    <position height="-1" width="-1" x="618" y="504"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -91,43 +91,70 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <generalization id="11">    
+  <class id="11" language="java" name="de.com.rost.simplegame.Pocket" project="Simple Game" 
+    file="/Simple Game/src/de/com/rost/simplegame/Pocket.java" binary="false" corner="BOTTOM_LEFT">    
+    <position height="-1" width="-1" x="896" y="271"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <generalization id="12">    
     <end type="SOURCE" refId="9"/>    
     <end type="TARGET" refId="4"/>  
   </generalization>  
-  <association id="12">    
+  <association id="13">    
     <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="13" name="players"/>      
-      <multiplicity id="14" minimum="0" maximum="2147483647"/>    
+      <attribute id="14" name="players"/>      
+      <multiplicity id="15" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="15">    
+  <association id="16">    
+    <bendpoint x="767" y="260"/>    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="17" name="leftPocket"/>      
+      <multiplicity id="18" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="19">    
     <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="1"/>  
   </realization>  
-  <realization id="16">    
+  <realization id="20">    
     <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="1"/>  
   </realization>  
-  <generalization id="17">    
+  <generalization id="21">    
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="4"/>  
   </generalization>  
-  <generalization id="18">    
+  <generalization id="22">    
     <end type="SOURCE" refId="10"/>    
     <end type="TARGET" refId="4"/>  
   </generalization>  
-  <generalization id="19">    
+  <association id="23">    
+    <bendpoint x="764" y="336"/>    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="24" name="rightPocket"/>      
+      <multiplicity id="25" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="26">    
     <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="4"/>  
   </generalization>  
-  <generalization id="20">    
+  <generalization id="27">    
     <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="4"/>  
   </generalization>  
-  <generalization id="21">    
+  <generalization id="28">    
     <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="4"/>  
   </generalization>  
