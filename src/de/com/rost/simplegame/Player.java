@@ -20,7 +20,8 @@ public class Player extends GameObject implements Placeable {
 
 	@Override
 	public String toString() {
-		return this.getClass().getName() + "[name=" + name + "]";
+		return this.getClass().getName() + "[name=" + name + ",x:"
+				+position.x + "y:"+ position.y + "]";
 	}
 
 	@Override
