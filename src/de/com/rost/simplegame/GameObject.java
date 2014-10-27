@@ -9,7 +9,7 @@ public abstract class GameObject{
 	
 	{
 		name = "Unnamed Game Object";
-		position = new Point(-1,-1);
+		position = new Point();
 	}
 
 	public GameObject(){}

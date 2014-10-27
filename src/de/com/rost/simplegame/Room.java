@@ -1,58 +1,81 @@
 package de.com.rost.simplegame;
 
+import java.awt.Dimension;
 import java.awt.Point;
 import java.util.ArrayList;
 
 import de.com.rost.simplegame.interfaces.Placeable;
-import de.com.rost.simplegame.utility.*;
+import de.com.rost.simplegame.utility.MyMathUtils;
+import de.com.rost.simplegame.utility.RoomUtils;
 
 public class Room extends GameObject {
-	
+
 	int size;
-	ArrayList<Player> players = new ArrayList<>(); 
+	Dimension dimension;
+	ArrayList<Player> players = new ArrayList<>();
+
+	{
+		dimension = new Dimension(0, 0);
+	}
 
 	public Room(String name, int size) {
 		super(name);
 		this.size = size;
 	}
-	
-	public int getSize() {
-		return size;
+
+	public Room(String name, int width, int height) {
+
+		super(name);
+		dimension = new Dimension(width, height);
 	}
 
-	public void setSize(int size) {
-		this.size = size;
+	public Dimension getDimension() {
+		return dimension;
 	}
-	
-	public ArrayList<Player> getPlayers(){
+
+	public ArrayList<Player> getPlayers() {
 		return players;
-		
 	}
 
-	public void placePlayer(Placeable... players){
-		for( Placeable player : players){
-			
-				player.setPosition(new Point(
-						MyMathUtils.randInt(0,((int)Math.sqrt(this.size)-1)),
-						MyMathUtils.randInt(0,((int)Math.sqrt(this.size)-1))));
-				if(!RoomUtils.coordinateCollisions(this, player))
-					this.players.add((Player)player);
-//				System.out.println(RoomUtils.coordinateCollisions(this, player));
-				
+	public void placePlayer(Placeable... players) {
+
+		for (Placeable player : players) {
+
+			Player p = (Player) player;
+			p.useOn(this); // Put player inside room
+
+			p.setPosition(new Point(MyMathUtils.randInt(0,
+					((int) getDimension().getWidth() - 1)), MyMathUtils
+					.randInt(0, ((int) getDimension().getHeight() - 1))));
+
+			if (RoomUtils.coordinateCollisions(this, player)) {
+				placePlayer(player);
+			}
+
+			else if (!RoomUtils.coordinateCollisions(this, player)
+					|| this.players.isEmpty()) {
+				this.players.add(p);
+
+			}
+
 		}
 	}
-	
-	public void listPlayers(){
-		for( Placeable e : players )
-			System.out.println(((GameObject) e).getName()
-					+ "[x:" + e.getPosition().getX()
-					+ " y:" + e.getPosition().getY() + "]");
-		
+
+	public void listPlayers() {
+
+		StringBuilder message = new StringBuilder();
+		for (Placeable e : players)
+			message.append((((GameObject) e).getName() + " [x:"
+					+ e.getPosition().getX() + " y:" + e.getPosition().getY()
+					+ "]" + System.lineSeparator()));
+		javax.swing.JOptionPane.showMessageDialog(null, message);
+
 	}
-	
+
 	@Override
 	public boolean useOn(GameObject object) {
+
 		return false;
 	}
-	
+
 }
