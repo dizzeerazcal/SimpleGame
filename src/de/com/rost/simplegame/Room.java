@@ -12,7 +12,7 @@ public class Room extends GameObject {
 
 	int size;
 	Dimension dimension;
-	ArrayList<Player> players = new ArrayList<>();
+	ArrayList<Placeable> gameObjects = new ArrayList<>();
 
 	{
 		dimension = new Dimension(0, 0);
@@ -33,38 +33,37 @@ public class Room extends GameObject {
 		return dimension;
 	}
 
-	public ArrayList<Player> getPlayers() {
-		return players;
+	public ArrayList<Placeable> getGameObjects() {
+		return gameObjects;
 	}
 
-	public void placePlayer(Placeable... players) {
+	public void placeGameObject(Placeable... gameObjects) {
 
-		for (Placeable player : players) {
+		for (Placeable o : gameObjects) {
 
-			Player p = (Player) player;
-			p.useOn(this); // Put player inside room
+			((GameObject)o).useOn(this); // Put player inside room
 
-			p.setPosition(new Point(MyMathUtils.randInt(0,
+			o.setPosition(new Point(MyMathUtils.randInt(0,
 					((int) getDimension().getWidth() - 1)), MyMathUtils
 					.randInt(0, ((int) getDimension().getHeight() - 1))));
 
-			if (RoomUtils.coordinateCollisions(this, player)) {
-				placePlayer(player);
+			if (RoomUtils.coordinateCollisions(this, o)) {
+				placeGameObject(o);
 			}
 
-			else if (!RoomUtils.coordinateCollisions(this, player)
-					|| this.players.isEmpty()) {
-				this.players.add(p);
+			else if (!RoomUtils.coordinateCollisions(this, o)
+					|| this.gameObjects.isEmpty()) {
+				this.gameObjects.add(o);
 
 			}
 
 		}
 	}
 
-	public void listPlayers() {
+	public void listGameObjects() {
 
 		StringBuilder message = new StringBuilder();
-		for (Placeable e : players)
+		for (Placeable e : gameObjects)
 			message.append((((GameObject) e).getName() + " [x:"
 					+ e.getPosition().getX() + " y:" + e.getPosition().getY()
 					+ "]" + System.lineSeparator()));

@@ -7,19 +7,22 @@ public class Game {
 	private static Room dungeon;
 	
 	public static void main(String[] args) {
-		Player marc = new Player("Marc");
-		Player peter = new Player("Peter");
-		Player harald = new Player("Harald");
-		dungeon = new Room("Dungeon", 40,10);
-		dungeon.placePlayer(marc, peter, harald);
-		Magazine lifestyle = new Magazine("Lifestyle", 4.50);
-		Magazine ct = new Magazine("c't", 7.90);
-
-		marc.leftPocket.set((GameObject) lifestyle);
-		marc.rightPocket.set((GameObject) ct);
 		
+		setupNewGame();
 		showGUI();
 
+	}
+	
+	private static void setupNewGame(){
+		Gold gold = new Gold("$Schatz$", 100000);
+		Player marc = new Player("Marc");
+		dungeon = new Room("Dungeon", 40,10);
+		dungeon.placeGameObject(marc, gold);
+		
+		Magazine lifestyle = new Magazine("Lifestyle", 4.50);
+		Magazine ct = new Magazine("c't", 7.90);
+		marc.leftPocket.set((GameObject) lifestyle);
+		marc.rightPocket.set((GameObject) ct);
 	}
 	
 	private static void showGUI(){
@@ -29,5 +32,5 @@ public class Game {
 		f.pack();
 		f.setVisible(true);
 	}
-
+	
 }
