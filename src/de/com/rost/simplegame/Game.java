@@ -6,23 +6,23 @@ public class Game {
 
 	private static Room dungeon;
 	
-	public static void main(String[] args) {
-		
+	public static void main(String[] args) {		
 		setupNewGame();
 		showGUI();
-
 	}
 	
 	private static void setupNewGame(){
-		Gold gold = new Gold("$Schatz$", 100000);
-		Player marc = new Player("Marc");
+		Player player = new Player("Player");
+		Gold gold = new Gold("$Treasure$", 100000);
+		Door door = new Door("#Exit");
 		dungeon = new Room("Dungeon", 40,10);
-		dungeon.placeGameObject(marc, gold);
+		
+		dungeon.placeGameObject(player, gold, door);
 		
 		Magazine lifestyle = new Magazine("Lifestyle", 4.50);
 		Magazine ct = new Magazine("c't", 7.90);
-		marc.leftPocket.set((GameObject) lifestyle);
-		marc.rightPocket.set((GameObject) ct);
+		player.leftPocket.set((GameObject) lifestyle);
+		player.rightPocket.set((GameObject) ct);
 	}
 	
 	private static void showGUI(){
