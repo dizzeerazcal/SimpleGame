@@ -6,18 +6,18 @@ public class Game {
 
 	private static Room dungeon;
 	
-	public static void main(String[] args) {
-		
+	public static void main(String[] args) {		
 		setupNewGame();
 		showGUI();
-
 	}
 	
 	private static void setupNewGame(){
-		Gold gold = new Gold("$Schatz$", 100000);
-		Player marc = new Player("Marc");
-		dungeon = new Room("Dungeon", 40,10);
-		dungeon.placeGameObject(marc, gold);
+		Door door = new Door("Exit");
+		Gold gold = new Gold("$Treasure$", 100000);
+		Player marc = new Player("Player");
+		dungeon = new Room("Dungeon", 40, 10);
+		
+		dungeon.placeGameObject(marc, gold, door);
 		
 		Magazine lifestyle = new Magazine("Lifestyle", 4.50);
 		Magazine ct = new Magazine("c't", 7.90);

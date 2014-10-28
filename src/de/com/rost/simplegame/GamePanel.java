@@ -86,16 +86,16 @@ public class GamePanel extends JPanel implements KeyListener {
 		default:
 			break;
 		}
-		repaint();
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
 		for (Placeable o : ROOM.getGameObjects())
 			if (player.getPosition().equals(o.getPosition()) && player != o) {
 				player.useOn((GameObject)o);
 			}
 		repaint();
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		
 	}
 
 }
