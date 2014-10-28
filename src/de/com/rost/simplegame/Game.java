@@ -14,15 +14,16 @@ public class Game {
 	}
 	
 	private static void setupNewGame(){
-		Gold gold = new Gold("$Schatz$", 100000);
-		Player marc = new Player("Marc");
+		Gold gold = new Gold("$Treasure$", 100000);
+		Player player = new Player("Player");
+		Door door = new Door("#Exit");
 		dungeon = new Room("Dungeon", 40,10);
-		dungeon.placeGameObject(marc, gold);
+		dungeon.placeGameObject(player, gold, door);
 		
 		Magazine lifestyle = new Magazine("Lifestyle", 4.50);
 		Magazine ct = new Magazine("c't", 7.90);
-		marc.leftPocket.set((GameObject) lifestyle);
-		marc.rightPocket.set((GameObject) ct);
+		player.leftPocket.set((GameObject) lifestyle);
+		player.rightPocket.set((GameObject) ct);
 	}
 	
 	private static void showGUI(){

@@ -15,6 +15,7 @@ public class GamePanel extends JPanel implements KeyListener {
 
 	private static final long serialVersionUID = -4735916011178386352L;
 	private final Room ROOM;
+	public Player player;
 
 	public GamePanel(Room room) {
 		ROOM = room;
@@ -23,6 +24,7 @@ public class GamePanel extends JPanel implements KeyListener {
 						.getDimension().getHeight() * 10));
 		setFocusable(true);
 		addKeyListener(this);
+		player = (Player) room.getGameObjects().get(0);
 	}
 
 	@Override
@@ -37,7 +39,7 @@ public class GamePanel extends JPanel implements KeyListener {
 				Point p = new Point(x, y);
 				for (Placeable gameObject : ROOM.getGameObjects()) {
 					if (p.equals(gameObject.getPosition())) {
-						c = ((GameObject)gameObject).symbol;
+						c = ((GameObject) gameObject).symbol;
 					}
 				}
 				if (!Character.isWhitespace(c))
@@ -54,23 +56,22 @@ public class GamePanel extends JPanel implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		Placeable gameObject = ROOM.getGameObjects().get(0);
 		switch (e.getKeyCode()) {
 		case KeyEvent.VK_UP:
-			gameObject.setPosition(new Point(gameObject.getPosition().x,
-					gameObject.getPosition().y - 1));
+			player.setPosition(new Point(player.getPosition().x, player
+					.getPosition().y - 1));
 			break;
 		case KeyEvent.VK_DOWN:
-			gameObject.setPosition(new Point(gameObject.getPosition().x,
-					gameObject.getPosition().y + 1));
+			player.setPosition(new Point(player.getPosition().x, player
+					.getPosition().y + 1));
 			break;
 		case KeyEvent.VK_LEFT:
-			gameObject.setPosition(new Point(gameObject.getPosition().x - 1,
-					gameObject.getPosition().y));
+			player.setPosition(new Point(player.getPosition().x - 1, player
+					.getPosition().y));
 			break;
 		case KeyEvent.VK_RIGHT:
-			gameObject.setPosition(new Point(gameObject.getPosition().x + 1,
-					gameObject.getPosition().y));
+			player.setPosition(new Point(player.getPosition().x + 1, player
+					.getPosition().y));
 			break;
 		case KeyEvent.VK_L:
 			ROOM.listGameObjects();
@@ -90,6 +91,10 @@ public class GamePanel extends JPanel implements KeyListener {
 
 	@Override
 	public void keyReleased(KeyEvent e) {
+		for (Placeable o : ROOM.getGameObjects())
+			if (player.getPosition().equals(o.getPosition()) && player != o) {
+				player.useOn((GameObject)o);
+			}
 		repaint();
 	}
 
