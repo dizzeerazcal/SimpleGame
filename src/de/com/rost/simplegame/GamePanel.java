@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Arrays;
 
 import javax.swing.JPanel;
 
@@ -16,6 +17,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	private static final long serialVersionUID = -4735916011178386352L;
 	private final Room ROOM;
 	public Player player;
+	public Snake snake;
 
 	public GamePanel(Room room) {
 		ROOM = room;
@@ -25,8 +27,9 @@ public class GamePanel extends JPanel implements KeyListener {
 		setFocusable(true);
 		addKeyListener(this);
 		player = (Player) room.getGameObjects().get(0);
+		snake = (Snake) room.getGameObjects().get(1);
 	}
-
+	
 	@Override
 	protected void paintComponent(Graphics g) {
 		g.setColor(Color.GREEN);
@@ -39,6 +42,8 @@ public class GamePanel extends JPanel implements KeyListener {
 				Point p = new Point(x, y);
 				for (Placeable gameObject : ROOM.getGameObjects()) {
 					if (p.equals(gameObject.getPosition())) {
+						c = ((GameObject) gameObject).symbol;
+					} else if ( Arrays.asList(snake.getPositions()).contains(p) ){
 						c = ((GameObject) gameObject).symbol;
 					}
 				}

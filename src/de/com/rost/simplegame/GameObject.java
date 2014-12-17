@@ -11,7 +11,6 @@ public abstract class GameObject {
 	{
 		name = "Unnamed Game Object";
 		position = new Point();
-
 		symbol = ' ';
 	}
 	

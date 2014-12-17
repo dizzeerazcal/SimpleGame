@@ -8,25 +8,25 @@ public class Player extends GameObject implements Placeable {
 
 	public Pocket<GameObject> leftPocket;
 	public Pocket<GameObject> rightPocket;
-	private boolean rich;
-	private Room room;
+	boolean rich;
+	Room room;
 
 	{
 		leftPocket = new Pocket<GameObject>();
 		rightPocket = new Pocket<GameObject>();
 		rich = false;
 	}
-	
+
+	public Player(String name) {
+		super(name);
+	}
+
 	public boolean isRich() {
 		return rich;
 	}
 
 	public void setRich(boolean rich) {
 		this.rich = rich;
-	}
-
-	public Player(String name) {
-		super(name);
 	}
 
 	@Override
@@ -44,14 +44,17 @@ public class Player extends GameObject implements Placeable {
 			((Gold) object).remove();
 			this.setRich(true);
 			return true;
+		} else if (object instanceof Snake) {
+			System.exit(0);
+			return true;
 		} else if (object instanceof Door) {
-			if(this.isRich()){
+			if (this.isRich()) {
 				System.exit(0);
 				return true;
 			}
 			return false;
 		} else
-			return false;	
+			return false;
 	}
 
 	@Override
