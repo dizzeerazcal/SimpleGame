@@ -73,7 +73,6 @@ public class Room extends GameObject {
 
 	@Override
 	public boolean useOn(GameObject object) {
-
 		return false;
 	}
 

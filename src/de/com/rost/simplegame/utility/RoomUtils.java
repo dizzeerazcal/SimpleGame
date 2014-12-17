@@ -1,6 +1,6 @@
 package de.com.rost.simplegame.utility;
 
-import java.awt.Point;
+import java.util.Arrays;
 
 import de.com.rost.simplegame.Room;
 import de.com.rost.simplegame.Snake;
@@ -12,20 +12,13 @@ public class RoomUtils {
 
 		if (!room.getGameObjects().isEmpty()) {
 			for (Placeable gameObject : room.getGameObjects()) {
-				if (!(object instanceof Snake)) {
-					if (object.getPosition().equals(gameObject.getPosition())) {
-						javax.swing.JOptionPane.showMessageDialog(null,
-								"Collision");
+				if (!(gameObject instanceof Snake)) {
+					if (gameObject.getPosition().equals(object.getPosition())) {
 						return true;
 					}
 				} else {
-					for (Point ref : ((Snake) object).getPositions()) {
-						System.out.println(ref);
-//						if (ref.equals(object.getPosition())) {
-//							javax.swing.JOptionPane.showMessageDialog(null,
-//									"Collision");
-//							return true;
-//						}
+					if (Arrays.asList(((Snake)gameObject).getPositions()).contains(object.getPosition())){
+						return true;
 					}
 				}
 			}

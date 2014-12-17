@@ -14,7 +14,7 @@ public class Snake extends Player {
 		this.length = length;
 		positions = new Point[length];
 		snakeIdx = 0;
-		positions[snakeIdx] = new Point(3,5);
+		positions[snakeIdx] = new Point(20,20);
 	}
 	
 	public Point[] getPositions(){
