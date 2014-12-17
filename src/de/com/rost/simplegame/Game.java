@@ -16,9 +16,10 @@ public class Game {
 		Gold gold = new Gold("$Treasure$", 100000);
 		Player marc = new Player("Player");
 		Player harald = new Player("Harald");
+		Snake snake = new Snake("Snake", 5);
 		dungeon = new Room("Dungeon", 40, 10);
 		
-		dungeon.placeGameObject(marc, gold, door, harald);
+		dungeon.placeGameObject(marc, snake, gold, door, harald);
 		
 		Magazine lifestyle = new Magazine("Lifestyle", 4.50);
 		Magazine ct = new Magazine("c't", 7.90);
