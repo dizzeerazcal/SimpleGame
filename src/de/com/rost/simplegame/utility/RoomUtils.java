@@ -14,10 +14,12 @@ public class RoomUtils {
 			for (Placeable gameObject : room.getGameObjects()) {
 				if (!(gameObject instanceof Snake)) {
 					if (gameObject.getPosition().equals(object.getPosition())) {
+						System.out.println("Collision");
 						return true;
 					}
 				} else {
 					if (Arrays.asList(((Snake)gameObject).getPositions()).contains(object.getPosition())){
+						System.out.println("Collision");
 						return true;
 					}
 				}

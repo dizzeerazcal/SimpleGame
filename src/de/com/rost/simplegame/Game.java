@@ -17,7 +17,7 @@ public class Game {
 		Player marc = new Player("Player");
 		Player harald = new Player("Harald");
 		Snake snake = new Snake("Snake", 5);
-		dungeon = new Room("Dungeon", 40, 10);
+		dungeon = new Room("Dungeon", 4, 4);
 		
 		dungeon.placeGameObject(marc, snake, gold, door, harald);
 		
